@@ -23,9 +23,16 @@ class _HomePageState extends State<HomePage> {
             colors: [
               AIColors.primaryColor1,
               AIColors.primaryColor2
-            ]
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ))
-          .make()
+          .make(),
+          AppBar(
+            title: 'OZ Radio'.text.xl4.bold.white.make(),
+            backgroundColor: Colors.transparent,
+            elevation: 0.0,
+          ).h(110.0).p16()
         ],
       ),
     );
