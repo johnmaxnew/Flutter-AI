@@ -29,9 +29,10 @@ class _HomePageState extends State<HomePage> {
           ))
           .make(),
           AppBar(
-            title: 'OZ Radio'.text.xl4.bold.white.make(),
+            title: 'OZ Radio'.text.xl4.bold.white.make().shimmer(primaryColor: Vx.purple300, secondaryColor: Colors.white),
             backgroundColor: Colors.transparent,
             elevation: 0.0,
+            centerTitle: true,
           ).h(110.0).p16()
         ],
       ),
