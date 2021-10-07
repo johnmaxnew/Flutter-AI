@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oz/utils/ai_util.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({ Key key }) : super(key: key);
@@ -11,6 +10,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
