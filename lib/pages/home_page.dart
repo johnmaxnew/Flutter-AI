@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oz/model/radio.dart';
 import 'package:oz/utils/ai_util.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -11,11 +12,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+  List<MyRadio> radios;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    fetchRadios();
   }
 
   @override
