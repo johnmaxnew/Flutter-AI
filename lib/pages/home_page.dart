@@ -21,6 +21,10 @@ class _HomePageState extends State<HomePage> {
     fetchRadios();
   }
 
+  fetchRadios(){
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
