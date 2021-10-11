@@ -24,6 +24,8 @@ class _HomePageState extends State<HomePage> {
 
   fetchRadios() async {
     final radioJson = await  rootBundle.loadString("assets/radio.json");
+    radios = MyRadioList.fromJson(radioJson).radios;
+    print(radios);
   }
 
   @override
