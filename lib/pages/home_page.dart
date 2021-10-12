@@ -61,6 +61,7 @@ class _HomePageState extends State<HomePage> {
           VxSwiper.builder(
             itemCount: radios.length,
             aspectRatio: 1.0,
+            enlargeCenterPage: true,
             itemBuilder: (context, index){
               final rad = radios[index];
 
@@ -71,10 +72,14 @@ class _HomePageState extends State<HomePage> {
               fit: BoxFit.cover,
               colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.darken),
               ))
-              .make();
+              .withRounded(value: 60.0)
+              .make()
+              .p16()
+              .centered();
             },
            )
         ],
+        fit: StackFit.expand,
       ),
     );
   }
