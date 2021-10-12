@@ -67,7 +67,14 @@ class _HomePageState extends State<HomePage> {
 
               return VxBox(
                 // ignore: prefer_const_constructors
-                child: ZStack(const []))
+                child: ZStack([
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: VStack([
+                      rad.name.text.xl3.white.bold.make(),
+                    ]),
+                  )
+                ]))
               .bgImage(DecorationImage(image: NetworkImage(rad.image),
               fit: BoxFit.cover,
               colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.darken),
