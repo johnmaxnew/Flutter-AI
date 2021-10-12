@@ -17,7 +17,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     fetchRadios();
   }
@@ -27,6 +26,10 @@ class _HomePageState extends State<HomePage> {
     radios = MyRadioList.fromJson(radioJson).radios;
     // ignore: avoid_print
     print(radios);
+
+    setState(() {
+      
+    });
   }
 
   @override
