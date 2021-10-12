@@ -16,6 +16,8 @@ class _HomePageState extends State<HomePage> {
 
   List<MyRadio> radios;
 
+  get itemBuilder => null;
+
   @override
   void initState() {
     super.initState();
@@ -55,8 +57,23 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Colors.transparent,
             elevation: 0.0,
             centerTitle: true,
-          ).h(110.0).p16().
-          VxSwiper.builder(itemCount: radios.length, )
+          ).h(110.0).p16(),
+          VxSwiper.builder(
+            itemCount: radios.length,
+            aspectRatio: 1.0,
+            itemBuilder: (context, index){
+              final rad = radios[index];
+
+              return VxBox(
+                // ignore: prefer_const_constructors
+                child: ZStack(const []))
+              .bgImage(DecorationImage(image: NetworkImage(rad.image),
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.3), BlendMode.darken),
+              ))
+              .make();
+            },
+           )
         ],
       ),
     );
