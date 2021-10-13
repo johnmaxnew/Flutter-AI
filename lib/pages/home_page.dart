@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -118,6 +120,14 @@ class _HomePageState extends State<HomePage> {
               .p16();
             },
            ).centered(),
+           const Align(
+             alignment: Alignment.bottomCenter,
+             child: Icon(
+               CupertinoIcons.stop_circle,
+               color: Colors.white,
+               size: 55.0,
+             ),
+           ).pOnly(bottom: context.percentHeight * 12),
         ],
         fit: StackFit.expand,
       ),
