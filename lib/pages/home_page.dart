@@ -1,11 +1,9 @@
-import 'dart:js';
-
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:oz/model/radio.dart';
 import 'package:oz/utils/ai_util.dart';
-import 'package:velocity_x/velocity_x.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,6 +16,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   List<MyRadio> radios;
+  MyRadio _selectedRadio;
+  Color _selectedColor;
+  bool _isPlaying = false;
+
+  final AudioPlayer _audioPlayer = AudioPlayer();
 
   get itemBuilder => null;
 
@@ -33,9 +36,13 @@ class _HomePageState extends State<HomePage> {
     // ignore: avoid_print
     print(radios);
 
-    setState(() {
-      
-    });
+    setState(() {});
+  }
+
+  _playMusic(String url){
+    _audioPlayer.play(url);
+    _selectedRadio = radios.firstWhere((element) => element.url == url);
+    print(_selectedRadio.name);
   }
 
   @override
@@ -125,7 +132,7 @@ class _HomePageState extends State<HomePage> {
              child: Icon(
                CupertinoIcons.stop_circle,
                color: Colors.white,
-               size: 55.0,
+               size: 50.0,
              ),
            ).pOnly(bottom: context.percentHeight * 12),
         ],
