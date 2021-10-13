@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
 
   List<MyRadio> radios;
   MyRadio _selectedRadio;
-  Color _selectedColor;
+  // Color _selectedColor;
   bool _isPlaying = false;
 
   final AudioPlayer _audioPlayer = AudioPlayer();
@@ -96,16 +96,6 @@ class _HomePageState extends State<HomePage> {
               return VxBox(
                 // ignore: prefer_const_constructors
                 child: ZStack([
-
-                  // Positioned(
-                  //   top: 0.0,
-                  //   right: 0.0,
-                  //   child: VxBox(
-                  //     child: rad.category.text.uppercase.white.bold.make().px16(),
-                  //   ).height(40).alignCenter.make(),
-                  // ),
-
-
                   Align(
                     alignment: Alignment.topCenter,
 
@@ -113,7 +103,6 @@ class _HomePageState extends State<HomePage> {
                       child: rad.category.text.uppercase.white.bold.make().px16(),
                     ).height(40).width(100).alignCenter.black.withRounded(value: 10.0).make().py16(),
                   ),
-
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: VStack([
@@ -124,7 +113,6 @@ class _HomePageState extends State<HomePage> {
                     crossAlignment: CrossAxisAlignment.center,
                     ),
                   ),
-                  
                   const Align(
                     alignment: Alignment.center,
                     child: Icon(
