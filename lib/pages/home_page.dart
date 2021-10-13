@@ -6,6 +6,13 @@ import 'package:oz/model/radio.dart';
 import 'package:oz/utils/ai_util.dart';
 import 'package:velocity_x/velocity_x.dart';
 
+
+// import 'package:ai_radio/model/radio.dart';
+// import 'package:ai_radio/utils/ai_util.dart';
+// import 'package:alan_voice/alan_voice.dart';
+
+
+
 class HomePage extends StatefulWidget {
   const HomePage({ Key key }) : super(key: key);
 
@@ -22,12 +29,20 @@ class _HomePageState extends State<HomePage> {
 
   final AudioPlayer _audioPlayer = AudioPlayer();
 
-  get itemBuilder => null;
 
   @override
   void initState() {
     super.initState();
     fetchRadios();
+
+    _audioPlayer.onPlayerStateChanged.listen((event) {
+      if (event == PlayerState.PLAYING) {
+        _isPlaying = true;
+      } else {
+        _isPlaying = false;
+      }
+      setState(() {});
+    });
   }
 
   fetchRadios() async {
@@ -43,6 +58,8 @@ class _HomePageState extends State<HomePage> {
     _audioPlayer.play(url);
     _selectedRadio = radios.firstWhere((element) => element.url == url);
     print(_selectedRadio.name);
+
+    setState(() {});
   }
 
   @override
@@ -127,13 +144,26 @@ class _HomePageState extends State<HomePage> {
               .p16();
             },
            ).centered(),
-           const Align(
+            Align(
              alignment: Alignment.bottomCenter,
-             child: Icon(
-               CupertinoIcons.stop_circle,
-               color: Colors.white,
-               size: 50.0,
-             ),
+             child: [
+
+               if(_isPlaying)
+               "Playing Now - ${_selectedRadio.name}".text.makeCentered(),
+               Icon(
+               _isPlaying
+                    ? CupertinoIcons.stop_circle
+                    : CupertinoIcons.play_circle,               
+                  color: Colors.white,
+                  size: 50.0,
+                ).onInkTap(() {
+                  if(_isPlaying){
+                    _audioPlayer.stop();
+                  }else{
+                    _playMusic(_selectedRadio.url);
+                  }
+                 })
+             ].vStack(),
            ).pOnly(bottom: context.percentHeight * 12),
         ],
         fit: StackFit.expand,
