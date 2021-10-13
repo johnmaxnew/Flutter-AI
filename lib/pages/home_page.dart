@@ -70,13 +70,23 @@ class _HomePageState extends State<HomePage> {
                 // ignore: prefer_const_constructors
                 child: ZStack([
 
-                  Positioned(
-                    top: 0.0,
-                    right: 0.0,
+                  // Positioned(
+                  //   top: 0.0,
+                  //   right: 0.0,
+                  //   child: VxBox(
+                  //     child: rad.category.text.uppercase.white.bold.make().px16(),
+                  //   ).height(40).alignCenter.make(),
+                  // ),
+
+
+                  Align(
+                    alignment: Alignment.topCenter,
+
                     child: VxBox(
-                      child: rad.category.text.uppercase.white.make().px16(),
-                    ).height(40).make(),
+                      child: rad.category.text.uppercase.white.bold.make().px16(),
+                    ).height(40).width(100).alignCenter.black.withRounded(value: 10.0).make().py16(),
                   ),
+
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: VStack([
@@ -105,10 +115,9 @@ class _HomePageState extends State<HomePage> {
               .onInkDoubleTap(() {
                 
               })
-              .p16()
-              .centered();
+              .p16();
             },
-           )
+           ).centered(),
         ],
         fit: StackFit.expand,
       ),
