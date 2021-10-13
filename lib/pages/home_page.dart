@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:oz/model/radio.dart';
@@ -68,12 +69,32 @@ class _HomePageState extends State<HomePage> {
               return VxBox(
                 // ignore: prefer_const_constructors
                 child: ZStack([
+
+                  Positioned(
+                    top: 0.0,
+                    right: 0.0,
+                    child: VxBox(
+                      child: rad.category.text.uppercase.white.make().px16(),
+                    ).height(40).make(),
+                  ),
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: VStack([
                       rad.name.text.xl3.white.bold.make(),
-                    ]),
-                  )
+                      5.heightBox,
+                      rad.tagline.text.sm.white.semiBold.make()
+                    ],
+                    crossAlignment: CrossAxisAlignment.center,
+                    ),
+                  ),
+                  
+                  const Align(
+                    alignment: Alignment.center,
+                    child: Icon(
+                      CupertinoIcons.play_circle,
+                      color: Colors.white,
+                    ),
+                  ),
                 ]))
               .bgImage(DecorationImage(image: NetworkImage(rad.image),
               fit: BoxFit.cover,
@@ -81,6 +102,9 @@ class _HomePageState extends State<HomePage> {
               ))
               .withRounded(value: 60.0)
               .make()
+              .onInkDoubleTap(() {
+                
+              })
               .p16()
               .centered();
             },
