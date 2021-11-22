@@ -86,7 +86,8 @@ class _HomePageState extends State<HomePage> {
             elevation: 0.0,
             centerTitle: true,
           ).h(110.0).p16(),
-          VxSwiper.builder(
+          radios != null
+          ? VxSwiper.builder(
             itemCount: radios.length,
             aspectRatio: 1.0,
             enlargeCenterPage: true,
@@ -132,7 +133,10 @@ class _HomePageState extends State<HomePage> {
               })
               .p16();
             },
-           ).centered(),
+           ).centered()
+           : const Center(
+             child: CircularProgressIndicator(),
+             ),
             Align(
              alignment: Alignment.bottomCenter,
              child: [
