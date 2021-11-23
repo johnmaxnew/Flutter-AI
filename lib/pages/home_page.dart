@@ -92,7 +92,10 @@ class _HomePageState extends State<HomePage> {
             aspectRatio: 1.0,
             enlargeCenterPage: true,
             onPageChanged: (index){
-              final color = radios[index].color;
+              final colorHex = radios[index].color;
+              // _selectedColor = Color(int.tryParse(colorHex));
+              
+              setState(() {});
             },
             itemBuilder: (context, index){
               final rad = radios[index];
