@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
           .withGradient(LinearGradient(
             colors: [
               AIColors.primaryColor1,
-              AIColors.primaryColor2
+              _selectedColor ?? AIColors.primaryColor2
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -91,6 +91,9 @@ class _HomePageState extends State<HomePage> {
             itemCount: radios.length,
             aspectRatio: 1.0,
             enlargeCenterPage: true,
+            onPageChanged: (index){
+              final color = radios[index];
+            },
             itemBuilder: (context, index){
               final rad = radios[index];
 
@@ -163,4 +166,7 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+mixin _selectedColor {
 }
