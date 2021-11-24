@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
             enlargeCenterPage: true,
             onPageChanged: (index){
               final colorHex = radios[index].color;
-              // _selectedColor = Color(int.tryParse(colorHex));
+              _selectedColor = Color(int.tryParse(colorHex));
               
               setState(() {});
             },
